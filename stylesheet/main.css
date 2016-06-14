@@ -1,0 +1,107 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    overflow-x: hidden;
+    color: #2a3237;
+    background-color: #ffffff);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+header {
+    position: relative;
+    width: 100%;
+    color: white;
+    background: rgba(13, 36, 58, 0.93);
+    background-size: cover;
+}
+
+header .table {
+    display: table;
+    height: 100%;
+}
+
+header .container {
+    height: 100%;
+}
+
+header .header-text {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: #010101;
+}
+
+.headerBracket{
+    font-size: 90px;
+}
+
+.intro-table {
+    background-color: #0f6186;
+    min-height: 540px;
+}
+
+#map{
+    width: 100%;
+    height: 400px;
+}
+
+.glyphicon-menu-down {
+    font-size: 50px;
+    color: #337ab7;
+    cursor: pointer;
+
+}
+
+.glyphicon-menu-down:hover{
+    color: #23527c;
+}
+
+.comingDownLoop {
+    -webkit-animation: comingDownLoop 1s infinite;
+    -o-animation: comingDownLoop 1s infinite;
+    animation: comingDownLoop 1s infinite;
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+    transform: translate(0);
+}
+
+@keyframes comingDownLoop {
+    0% {
+        -webkit-transform: translate(0, -15px);
+        -moz-transform: translate(0, -15px);
+        -ms-transform: translate(0, -15px);
+        -o-transform: translate(0, -15px);
+        transform: translate(0, -15px);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.solutionTitle {
+    color: #337ab7;
+}
+
+.divider {
+    border-color: #0f6186;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+footer {
+    background: rgba(13, 36, 58, 0.93);
+    color: #ffffff;
+    font-size: 18px;
+    min-height: 200px;
+    padding-top: 40px;
+    margin-top: 50px;
+}
