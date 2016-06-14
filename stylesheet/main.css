@@ -13,7 +13,7 @@ header {
     position: relative;
     width: 100%;
     color: white;
-    background: rgba(13, 36, 58, 0.93);
+    background: #0d243a;
     background-size: cover;
 }
 
@@ -30,7 +30,7 @@ header .header-text {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    color: #010101;
+    color: #a68750;
 }
 
 .headerBracket{
@@ -99,7 +99,7 @@ header .header-text {
 
 footer {
     background: rgba(13, 36, 58, 0.93);
-    color: #ffffff;
+    color: #a68750;
     font-size: 18px;
     min-height: 200px;
     padding-top: 40px;
