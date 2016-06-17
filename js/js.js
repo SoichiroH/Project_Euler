@@ -62,46 +62,52 @@ $(document).ready(function(){
     primeFactor(600851475143);
 
     //Question 4
-    function largestPalindrome(){
+    function largestPalindrome(startingNumber1,maxNumber1,startingNumber2,maxNumber2) {
         var eachValueArray = [];
         var answerArray = [];
 
-        for (var a=900; a < 1000; a++){
-            for (var b=900; b < 1000; b++){
+        //Multiply every combination
+        for (var a = startingNumber1; a <= maxNumber1; a++) {
+            for (var b = startingNumber2; b <= maxNumber2; b++) {
                 var currentMultValue = a * b;
                 var currentMultValueString = currentMultValue.toString();
 
+                //Slice every digit and add them individually to an array
                 var c = 0;
-                do{
-                    var eachValue = currentMultValueString.slice(c, c+1);
-                    if (eachValue != ''){
+                do {
+                    var eachValue = currentMultValueString.slice(c, c + 1);
+                    if (eachValue != '') {
                         eachValueArray.push(eachValue);
                     }
                     c++;
-                }while(eachValue !== '');
+                } while (eachValue !== '');
 
                 var lengthOfValue = eachValueArray.length;
                 var lengthOfValueInt = parseInt(lengthOfValue);
 
-                for (d=0; d <= lengthOfValueInt; d++){
-                    var indexDecrement = lengthOfValueInt - (d+1);
+                //Increment index to check numbers from both ends
+                //Pop from the array if the numbers don't match
+                //Push to the array as an answer candidate if palindrome
+                for (var d = 0; d <= lengthOfValueInt; d++) {
+                    var indexDecrement = lengthOfValueInt - (d + 1);
                     var filter = (eachValueArray[d] == eachValueArray[indexDecrement]);
-                    if(filter == false){
-                        for (d=0; d <= lengthOfValueInt; d++){
+                    if (filter == false) {
+                        for (d = 0; d <= lengthOfValueInt; d++) {
                             eachValueArray.pop();
                         }
                     }
-                    if ((d == lengthOfValueInt) && filter == true){
+                    if ((d == lengthOfValueInt) && filter == true) {
                         answerArray.push(currentMultValue);
                     }
                 }
             }
         }
-        var answer = Math.max.apply(Math,answerArray);
-        $('#answer4').append('<p>'+answer+'</p>');
+        var answer = Math.max.apply(Math, answerArray);
+        $('#answer4').append('<p>' + answer + '</p>');
         return answer;
     }
-    largestPalindrome();
+  //largestPalindrome(startingNumber1,maxNumber1,startingNumber2,maxNumber2);
+    largestPalindrome(900,999,900,999);
 
 /*----------------------------------------------------------------------------------
 

@@ -175,15 +175,21 @@
                         <pre>
                             <code>
     &lt;script&gt;
-        function largestPalindrome(){
+        function largestPalindrome(startingNumber1,maxNumber1,startingNumber2,maxNumber2){
             var eachValueArray = [];
             var answerArray = [];
 
-            for (var a=900; a < 1000; a++){
-                for (var b=900; b < 1000; b++){
+        //----------------------------------------------------------
+        //Multiply every combination
+        //----------------------------------------------------------
+            for (var a = startingNumber1; a <= maxNumber1; a++) {
+                for (var b = startingNumber2; b <= maxNumber2; b++) {
                     var currentMultValue = a * b;
-                    var currentMultValueString = currentMultValue.toString();
 
+                //-------------------------------------------------------
+                //Slice every digit and push them to an array
+                //-------------------------------------------------------
+                    var currentMultValueString = currentMultValue.toString();
                     var c = 0;
                     do{
                         var eachValue = currentMultValueString.slice(c, c+1);
@@ -193,6 +199,11 @@
                         c++;
                     }while(eachValue !== '');
 
+                //------------------------------------------------------
+                //Increment index to check numbers from both ends
+                //Pop from the array if the numbers don't match
+                //Else push to the array as an answer candidate
+                //------------------------------------------------------
                     var lengthOfValue = eachValueArray.length;
                     var lengthOfValueInt = parseInt(lengthOfValue);
 
@@ -214,7 +225,8 @@
             $('#answer4').append('&lt;p&gt;'+answer+'&lt;p&gt;');
             return answer;
         }
-        largestPalindrome();
+      //largestPalindrome(startingNumber1,maxNumber1,startingNumber2,maxNumber2);
+        largestPalindrome(900,999,900,999);
     &lt;/script&gt;
                             </code>
                         </pre>
