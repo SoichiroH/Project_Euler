@@ -61,6 +61,48 @@ $(document).ready(function(){
     }
     primeFactor(600851475143);
 
+    //Question 4
+    function largestPalindrome(){
+        var eachValueArray = [];
+        var answerArray = [];
+
+        for (var a=900; a < 1000; a++){
+            for (var b=900; b < 1000; b++){
+                var currentMultValue = a * b;
+                var currentMultValueString = currentMultValue.toString();
+
+                var c = 0;
+                do{
+                    var eachValue = currentMultValueString.slice(c, c+1);
+                    if (eachValue != ''){
+                        eachValueArray.push(eachValue);
+                    }
+                    c++;
+                }while(eachValue !== '');
+
+                var lengthOfValue = eachValueArray.length;
+                var lengthOfValueInt = parseInt(lengthOfValue);
+
+                for (d=0; d <= lengthOfValueInt; d++){
+                    var indexDecrement = lengthOfValueInt - (d+1);
+                    var filter = (eachValueArray[d] == eachValueArray[indexDecrement]);
+                    if(filter == false){
+                        for (d=0; d <= lengthOfValueInt; d++){
+                            eachValueArray.pop();
+                        }
+                    }
+                    if ((d == lengthOfValueInt) && filter == true){
+                        answerArray.push(currentMultValue);
+                    }
+                }
+            }
+        }
+        var answer = Math.max.apply(Math,answerArray);
+        $('#answer4').append('<p>'+answer+'</p>');
+        return answer;
+    }
+    largestPalindrome();
+
 /*----------------------------------------------------------------------------------
 
     Decorations

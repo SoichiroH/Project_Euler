@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Project Euler Solutions</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" href="stylesheet/main.css">
@@ -146,6 +147,74 @@
             return answer;
         }
         primeFactor(600851475143);
+    &lt;/script&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider" width="4%" align="center">
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="solutionTitle">Question: 4</h2>
+                        <h4>
+                            A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+                            <br><br>
+                            Find the largest palindrome made from the product of two 3-digit numbers.
+                        </h4>
+                        <h2 class="solutionTitle">Solution</h2>
+                        <h2 id="answer4"></h2>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="solutionTitle">Code</h2>
+                        <pre>
+                            <code>
+    &lt;script&gt;
+        function largestPalindrome(){
+            var eachValueArray = [];
+            var answerArray = [];
+
+            for (var a=900; a < 1000; a++){
+                for (var b=900; b < 1000; b++){
+                    var currentMultValue = a * b;
+                    var currentMultValueString = currentMultValue.toString();
+
+                    var c = 0;
+                    do{
+                        var eachValue = currentMultValueString.slice(c, c+1);
+                        if (eachValue != ''){
+                            eachValueArray.push(eachValue);
+                        }
+                        c++;
+                    }while(eachValue !== '');
+
+                    var lengthOfValue = eachValueArray.length;
+                    var lengthOfValueInt = parseInt(lengthOfValue);
+
+                    for (d=0; d <= lengthOfValueInt; d++){
+                        var indexDecrement = lengthOfValueInt - (d+1);
+                        var filter = (eachValueArray[d] == eachValueArray[indexDecrement]);
+                        if(filter == false){
+                            for (d=0; d <= lengthOfValueInt; d++){
+                                eachValueArray.pop();
+                            }
+                        }
+                        if ((d == lengthOfValueInt) && filter == true){
+                            answerArray.push(currentMultValue);
+                        }
+                    }
+                }
+            }
+            var answer = Math.max.apply(Math,answerArray);
+            $('#answer4').append('&lt;p&gt;'+answer+'&lt;p&gt;');
+            return answer;
+        }
+        largestPalindrome();
     &lt;/script&gt;
                             </code>
                         </pre>
